@@ -57,7 +57,11 @@ for "_i" from 0 to 1 step 0 do {
     _fieldManual ctrlShow false;
 
     if (call _canUseControls) then {
-        [] spawn _escSync;
+        if(call life_adminlevel == 0) then {
+            [] spawn _escSync;
+        } else {
+            CONTROL(49,104) ctrlEnable true;
+        }
     } else {
         _respawnButton ctrlEnable false;
     };
